@@ -9,6 +9,6 @@ Analisando de uma forma mais simples, Macros sao basicamente substituicoes de st
 Macros sao de dois principais tipos:
 
 * Objeto: Normalmente utilizado para dar nome a constantes.
-* Funcao: Define uma função inline.
+* Função: Define uma função inline.
 
-Declarar funcoes simples atraves de Macros podem otimizar o tempo de processamento, ja que evita o custo da chamada de uma funcao.
+Declarar funcoes simples atraves de Macros podem otimizar o tempo de processamento, ja que evita o custo da chamada de uma função.

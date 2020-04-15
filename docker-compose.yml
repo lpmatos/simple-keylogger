@@ -18,8 +18,14 @@ services:
     container_name: ${CONTAINER_NAME}
     env_file: ./.env
     build:
-      context: ./code
+      context: ./${PATH_DOCKERFILE}
       dockerfile: Dockerfile
+    entrypoint: >
+      /bin/sh -c "
+        set -e
+        echo -e "\nStarting...\n"
+        /bin/bash || exit 0
+      "
     restart: unless-stopped
     stdin_open: true
     tty: true
