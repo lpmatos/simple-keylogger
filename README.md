@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center">
-  Study Project
+  Simple Keylogger - Version 1.0
 </h4>
 
 <p align="center">
