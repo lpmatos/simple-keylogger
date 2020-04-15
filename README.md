@@ -2,9 +2,11 @@
   <img alt="description" src="https://media1.giphy.com/media/UqxVRm1IaaIGk/source.gif" float="center"/>
 </p>
 
-<h4 align="center">
-  🔒 Keylogger 🔒
-</h4>
+<h1 align="center">🔒 Simple Keylogger 🔒</h1>
+
+<p align="center">
+  <strong>Project to create a Windows/Linux Keylogger</strong>
+</p>
 
 ## 🐋 Development with Docker
 
