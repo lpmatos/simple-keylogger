@@ -68,6 +68,32 @@ Pull requests are welcome. If you'd like to support the work and buy me a ☕, I
 
 <a href="https://www.buymeacoffee.com/EatdMck" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 100px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
+## Pre Requisites
+
+To this project you yeed:
+
+- Windows or Linux System.
+- Gcc to compile the code.
+- Docker and Docker Compose to support in your tests and development.
+
+## Built with
+
+This project was developed with:
+
+* Dev Tools
+
+  - [C](https://www.geeksforgeeks.org/c-language-set-1-introduction/)
+  - [Docker](https://docs.docker.com/)
+  - [Docker Compose](https://docs.docker.com/compose/)
+
+## Description
+
+Neste projeto a minha inteção principal é construir um simples Keylogger que funcione tanto para sistemas operacionais Windows, quanto para sistemas operacionais Linux. Existem vários formas de se construir um Keylogger, porém a forma abordada neste projeto procura ser a mais simples possível, uma vez que não passa de um simples projeto de estudo.
+
+Para podemos dentro do código saber em qual contexto de sistema operacional nós estamos, utilizamos macros de validação. Caso você queira saber um pouco mais sobre o que são macros em C, eu preparei um breve resumo sobre isso. Basta acessar [aqui](/docs/study/macros.md).
+
+Um outro detalhe importante sobre este projeto é que estamos utilizando uma library externa de log. Para mais detalhes sobre ela, acesse [aqui](https://github.com/rxi/log.c).
+
 ## Keylogger
 
 A keylogger (short for keystroke logger) is software that tracks or logs the keys struck on your keyboard, typically in a covert manner so that you don’t know that your actions are being monitored. This is usually done with malicious intent to collect your account information, credit card numbers, user names, passwords, and other private data.
