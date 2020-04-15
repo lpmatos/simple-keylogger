@@ -43,7 +43,7 @@
 <h1 align="center">🔒 Windows-Linuxs Keylogger 🔒</h1>
 
 <p align="center">
-  <strong>Building a Windows/Linux Keylogger write in C and with Docker and Docker-Compose</strong>
+  <strong>Building a Keylogger write in C and with Docker and Docker-Compose</strong>
 </p>
 
 <p align="center">
