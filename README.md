@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center">
-  🔒 Windows-Linux Keylogger 🔒
+  🚀 Quarentine Challenger 🚀
 </h4>
 
 <p align="center">
@@ -40,7 +40,7 @@
   <img alt="description" src="https://media1.giphy.com/media/UqxVRm1IaaIGk/source.gif" float="center"/>
 </p>
 
-<h1 align="center">Study Project</h1>
+<h1 align="center">Windows-Linuxs Keylogger</h1>
 
 <p align="center">
   <strong>This is a simple project to create a Windows/Linux Keylogger</strong>
