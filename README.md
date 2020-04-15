@@ -1,5 +1,9 @@
+<p align="center">
+  <img alt="description" src="https://media1.giphy.com/media/UqxVRm1IaaIGk/source.gif" float="center"/>
+</p>
+
 <h4 align="center">
-  🚀 Basic Keylogger 🚀
+  🔒 Keylogger 🔒
 </h4>
 
 ## 🐋 Development with Docker
