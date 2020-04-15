@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Keylogger" title="#keylogger" src="https://image.flaticon.com/icons/png/512/869/869418.png" width="250px" />
+    <img alt="Keylogger" title="#keylogger" src="https://image.flaticon.com/icons/png/512/869/869418.png" width="175px" />
 </h1>
 
 <h4 align="center">
