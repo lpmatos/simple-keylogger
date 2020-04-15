@@ -1,11 +1,56 @@
+<h1 align="center">
+    <img alt="Keylogger" title="#keylogger" src="https://image.flaticon.com/icons/png/512/869/869418.png" width="250px" />
+</h1>
+
+<h4 align="center">
+  🔒 Windows-Linux Keylogger 🔒
+</h4>
+
+<p align="center">
+  <a href="https://github.com/lpmatos/simple-keylogger">
+    <img alt="Open Source" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=102">
+  </a>
+  <a href="https://github.com/lpmatos/simple-keylogger/graphs/contributors">
+    <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/lpmatos/simple-keylogger">
+  </a>
+  <a href="https://github.com/lpmatos/simple-keylogger">
+    <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/lpmatos/simple-keylogger">
+  </a>
+  <a href="https://github.com/lpmatos/simple-keylogger">
+    <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/lpmatos/simple-keylogger">
+  </a>
+  <a href="https://github.com/lpmatos/simple-keylogger/stargazers">
+    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/lpmatos/simple-keylogger?style=social">
+  </a>
+  <a href="https://github.com/lpmatos/simple-keylogger/commits/master">
+    <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/lpmatos/simple-keylogger">
+  </a>
+  <a href="https://github.com/lpmatos/simple-keylogger">
+    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/lpmatos/simple-keylogger">
+  </a>
+  <a href="https://github.com/lpmatos/simple-keylogger/issues">
+    <img alt="Repository Issues" src="https://img.shields.io/github/issues/lpmatos/semana-simple-keylogger">
+  </a>
+  <a href="https://github.com/lpmatos/simple-keylogger/blob/master/LICENSE">
+    <img alt="MIT License" src="https://img.shields.io/github/license/lpmatos/simple-keylogger">
+  </a>
+</p>
+
 <p align="center">
   <img alt="description" src="https://media1.giphy.com/media/UqxVRm1IaaIGk/source.gif" float="center"/>
 </p>
 
-<h1 align="center">🔒 Simple Keylogger 🔒</h1>
+<h1 align="center">Study Project</h1>
 
 <p align="center">
-  <strong>Project to create a Windows/Linux Keylogger</strong>
+  <strong>This is a simple project to create a Windows/Linux Keylogger</strong>
+</p>
+
+<p align="center">
+  <a href="#built-with">Technology</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>
 </p>
 
 ## 🐋 Development with Docker
@@ -146,7 +191,7 @@ Hey!! If you like this project or if you find some bugs feel free to contact me 
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/lpmatos"><img src="https://avatars2.githubusercontent.com/u/58797390?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Lucca Pessoa</b></sub></a><br /><a href="https://github.com/lpmatos/omnistack/commits?author=lpmatos" title="Code">💻</a></a></td>
+    <td align="center"><a href="https://github.com/lpmatos"><img src="https://avatars2.githubusercontent.com/u/58797390?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Lucca Pessoa</b></sub></a><br /><a href="https://github.com/lpmatos/simple-keylogger/commits?author=lpmatos" title="Code">💻</a></a></td>
   <tr>
 </table>
 
@@ -154,7 +199,7 @@ Hey!! If you like this project or if you find some bugs feel free to contact me 
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/lpmatos"><img src="https://avatars2.githubusercontent.com/u/58797390?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Lucca Pessoa</b></sub></a><br /><a href="https://github.com/lpmatos/omnistack/commits?author=lpmatos" title="Code">💻</a> <a href="#lpmatos" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/lpmatos"><img src="https://avatars2.githubusercontent.com/u/58797390?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Lucca Pessoa</b></sub></a><br /><a href="https://github.com/lpmatos/simple-keylogger/commits?author=lpmatos" title="Code">💻</a> <a href="#lpmatos" title="Design">🎨</a></td>
   <tr>
 </table>
 
